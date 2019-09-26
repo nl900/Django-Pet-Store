@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>ID: {{ pet.id }}</h1>
+
+
+  <h3>Type: {{ pet.animal }}</h3>
+  <h3>Status: {{ pet.status }}</h3>
+
+
+  <p><strong>Breeder:</strong> <a href="">{{ pet.breeder }}</a></p> <!-- breeder detail link not yet defined -->
+  <p><strong>Likes:</strong> {{ pet.likes }}</p>
+{% endblock %}
