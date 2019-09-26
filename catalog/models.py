@@ -16,8 +16,9 @@ class Pet(models.Model):
     """Model representing a specific pet"""
     id = models.AutoField(primary_key=True)
 
-    # FK used because each pet can only belong to one anima, but each animal may have multiple pets
+    # FK used because each pet can only belong to one animal, but each animal may have multiple pets
     animal = models.ForeignKey('Animal', on_delete=models.SET_NULL, null=True)
+    breeder = models.ForeignKey('Breeder', on_delete=models.SET_NULL, null=True)
 
     likes = models.TextField(max_length=1000 ,default="", help_text="A few things the pet likes")
 
