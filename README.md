@@ -1,1 +1,1 @@
-Backend REST API for a pet store created using Django
+Backend REST API for a pet store with Django
