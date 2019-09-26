@@ -49,7 +49,7 @@ class Breeder(models.Model):
     name = models.CharField(max_length=100)
     address = models.TextField(max_length=1000)
 
-     def get_absolute_url(self):
+    def get_absolute_url(self):
         """Returns the url to access a particular breeder instance."""
         return reverse('breeder-detail', args=[str(self.id)])
 
