@@ -4,17 +4,25 @@ from django.urls import reverse
 # Create your models here.
 
 class Animal(models.Model):
-    """Animal is parent category"""
-    name = models.CharField(max_length=200, help_text='Enter the type of animal (e.g. cat')
-    
-    def __str__(self):
-        return self.name
+    name = models.CharField(max_length=80, null=True)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name="children")
 
-class Breed(models.Model):
-    name = models.CharField(max_length=200, help_text='Enter the breed (e.g. labrador')
+    class Meta:
+        unique_together = ('parent',)
+        verbose_name = 'Animal'
+        verbose_name_plural = 'Animals'
 
-    def __str__(self):
-        return self.name
+
+    def __str__(self):                           # __str__ method elaborated later in
+        full_path = [self.name]                  # post.  use __unicode__ in place of
+                                                 # __str__ if you are using python 2
+        k = self.parent                          
+
+        while k is not None:
+            full_path.append(k.name)
+            k = k.parent
+
+        return ' -> '.join(full_path[::-1])
 
 
 class Pet(models.Model):
@@ -23,8 +31,7 @@ class Pet(models.Model):
     id = models.AutoField(primary_key=True)
 
     # FK used because each pet can only belong to one animal, but each animal may have multiple pets
-    animal = models.ForeignKey('Animal', on_delete=models.SET_NULL, null=True)
-    breed = models.ForeignKey('Breed', on_delete=models.SET_NULL, null=True)
+    animal = models.ForeignKey('Animal', on_delete=models.SET_NULL, null=True, blank=True)
 
     breeder = models.ForeignKey('Breeder', on_delete=models.SET_NULL, null=True)
 
@@ -32,10 +39,10 @@ class Pet(models.Model):
 
 
     SALE_STATUS = (
-        ('s', 'Sold'),
-        ('u', 'Unavailable'),
         ('a', 'Available'),
+        ('u', 'Unavailable'),
         ('r', 'Reserved'),
+        ('s', 'Sold'),
     )
 
     status = models.CharField(
@@ -51,7 +58,7 @@ class Pet(models.Model):
         return reverse('pet-detail', args=[str(self.id)])
 
     def __str__(self):
-        return f'{self.id} ({self.pet.animal})'
+        return f'{self.id}, {self.animal}'
 
 class Breeder(models.Model):
     """Model representing supplier of the animal"""
