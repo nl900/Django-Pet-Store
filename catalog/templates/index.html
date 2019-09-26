@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Mr Jones' Pet Store</h1>
+  <p>Welcome to Mr Jones' online pet store</p>
+  <h3>The store has the following counts:</h3>
+  <ul>
+    <li><strong>Animals:</strong> {{ num_animal}}</li>
+    <li><strong>Pets:</strong> {{ pet_available  }}</li>
+    <li><strong>Breeders:</strong> {{ num_breeder }}</li>
+  </ul>
+{% endblock %}
