@@ -31,3 +31,9 @@ class PetListView(generic.ListView):
 
 class PetDetailView(generic.DetailView):
     model = Pet
+
+class BreederListView(generic.ListView):
+    model = Breeder
+
+class BreederDetailView(generic.DetailView):
+    model = Breeder

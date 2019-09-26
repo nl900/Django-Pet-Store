@@ -5,9 +5,9 @@
 
 
   <h3>Type: {{ pet.animal }}</h3>
-  <h3>Status: {{ pet.status }}</h3>
+  <h3>Status: {{ pet.get_sale_status_display }}</h3>
 
 
-  <p><strong>Breeder:</strong> <a href="">{{ pet.breeder }}</a></p> <!-- breeder detail link not yet defined -->
+  <p><strong>Breeder:</strong> <a href="{% url 'breeder-detail' pet.breeder.pk %}">{{ pet.breeder }}</a></p> 
   <p><strong>Likes:</strong> {{ pet.likes }}</p>
 {% endblock %}

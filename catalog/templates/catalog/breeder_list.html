@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Breeder List</h1>
+  {% if breeder_list %}
+  <ul>
+    {% for breeder in breeder_list %}
+      <li>
+        <a href="{{ breeder.get_absolute_url }}">{{ breeder.name }}</a> ({{breeder.address}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no breeders.</p>
+  {% endif %}       
+{% endblock %}

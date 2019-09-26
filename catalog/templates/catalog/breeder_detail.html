@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ breeder.name }}</h1>
+
+  <p><strong>Address:</strong> {{ breeder.address }}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Pets</h4>
+
+<dl>
+{% for pet in breeder.pet_set.all %}
+  <dt><a href="{% url 'pet-detail' pet.pk %}">{{pet}}</a> ({{pet.all.count}})</dt>
+  <dd>{{pet.animal}}</dd>
+{% endfor %}
+</dl>
+
+  </div>
+{% endblock %}
