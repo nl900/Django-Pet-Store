@@ -4,9 +4,15 @@ from django.urls import reverse
 # Create your models here.
 
 class Animal(models.Model):
-    """Model representing the animal."""
+    """Animal is parent category"""
     name = models.CharField(max_length=200, help_text='Enter the type of animal (e.g. cat')
     
+    def __str__(self):
+        return self.name
+
+class Breed(models.Model):
+    name = models.CharField(max_length=200, help_text='Enter the breed (e.g. labrador')
+
     def __str__(self):
         return self.name
 
@@ -18,6 +24,8 @@ class Pet(models.Model):
 
     # FK used because each pet can only belong to one animal, but each animal may have multiple pets
     animal = models.ForeignKey('Animal', on_delete=models.SET_NULL, null=True)
+    breed = models.ForeignKey('Breed', on_delete=models.SET_NULL, null=True)
+
     breeder = models.ForeignKey('Breeder', on_delete=models.SET_NULL, null=True)
 
     likes = models.TextField(max_length=1000 ,default="", help_text="A few things the pet likes")
