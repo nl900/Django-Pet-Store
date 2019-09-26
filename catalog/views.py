@@ -21,6 +21,7 @@ def index(request):
         'num_animal': num_animal,
         'num_pet_available': pet_available ,
         'num_breeder': num_breeder,
+        'num_visits': num_visits,
     }
 
     # Render the HTML template index.html with the data in the context variable
