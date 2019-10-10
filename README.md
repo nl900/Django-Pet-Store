@@ -1,4 +1,5 @@
 **Django online store**
+
 This web application creates an online catalog for a pet store where potential customers can browse pets for sale and manage their accounts.
 
 The configuration uses SQLite.
@@ -12,9 +13,11 @@ The main features that have currently been implemented are:
 ![Untitled Diagram](https://user-images.githubusercontent.com/49750572/66017837-c5fdc400-e51f-11e9-90bc-bf65d6d3b13c.png)
 
 **Requirements**
+
 Python3.7.4 
 
 **Installation**
+
 On MacOS
 python3 manage.py makemigrations
 python3 manage.py migrate
