@@ -14,7 +14,7 @@ The main features that have currently been implemented are:
 
 **Requirements**
 
-Python3.7.4 
+Python3.7.4<br/>
 Django2.2.5
 
 **Installation**
