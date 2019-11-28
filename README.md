@@ -26,5 +26,5 @@ python3.py collectstatic<br/>
 python3 manage.py createsuperuser #create a superuser<br/>
 python3 manage.py runserver
 
-Open a browser to http://127.0.0.1:8000/admin/ to admin page and login with superuser details.
+Open a browser to http://127.0.0.1:8000/admin/ to admin page and login with superuser details.<br/>
 Go to http://127.0.0.1:8000 to see the main site.
