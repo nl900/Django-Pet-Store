@@ -19,7 +19,7 @@ Django2.2.5
 
 **Installation**
 
-On MacOS
+On MacOS<br/>
 python3 manage.py makemigrations
 python3 manage.py migrate
 python3.py collectstatic
