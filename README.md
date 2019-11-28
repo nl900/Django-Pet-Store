@@ -20,10 +20,10 @@ Django2.2.5
 **Installation**
 
 On MacOS<br/>
-python3 manage.py makemigrations
-python3 manage.py migrate
-python3.py collectstatic
-python3 manage.py createsuperuser #create a superuser
+python3 manage.py makemigrations<br/>
+python3 manage.py migrate<br/>
+python3.py collectstatic<br/>
+python3 manage.py createsuperuser #create a superuser<br/>
 python3 manage.py runserver
 
 Open a browser to http://127.0.0.1:8000/admin/ to admin page and login with superuser details.
